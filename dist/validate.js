@@ -70,7 +70,7 @@ function default_1(document) {
     // construct a canonical base path
     var basePath = (document.basePath || '') + ((document.basePath || '').endsWith('/') ? '' : '/');
     return function (context, next) { return __awaiter(_this, void 0, void 0, function () {
-        var compiledPath, validationErrors, error;
+        var compiledPath, validationErrors;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -109,15 +109,6 @@ function default_1(document) {
                 case 3:
                     // wait for the operation to execute
                     _a.sent();
-                    error = swagger.validateResponse(compiledPath, context.method, context.status, context.body);
-                    if (error) {
-                        error.where = 'response';
-                        context.status = 500;
-                        context.body = {
-                            code: 'SWAGGER_RESPONSE_VALIDATION_FAILED',
-                            errors: [error]
-                        };
-                    }
                     return [2 /*return*/];
             }
         });

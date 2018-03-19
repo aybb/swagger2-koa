@@ -79,14 +79,14 @@ export default function(document: swagger.Document): (context: any, next: () => 
     await next();
 
     // check the response matches the swagger schema
-    const error = swagger.validateResponse(compiledPath, context.method, context.status, context.body);
-    if (error) {
-      error.where = 'response';
-      context.status = 500;
-      context.body = {
-        code: 'SWAGGER_RESPONSE_VALIDATION_FAILED',
-        errors: [error]
-      };
-    }
+    // const error = swagger.validateResponse(compiledPath, context.method, context.status, context.body);
+    // if (error) {
+    //   error.where = 'response';
+    //   context.status = 500;
+    //   context.body = {
+    //     code: 'SWAGGER_RESPONSE_VALIDATION_FAILED',
+    //     errors: [error]
+    //   };
+    // }
   };
 }
